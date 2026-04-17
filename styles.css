@@ -605,7 +605,7 @@ span{
 }
 
 .inner-images {
-  background-image: url("images/ma.jpg");
+  background-image: url("./images/ma.jpg");
   width:350px;
   height: 490px;
   background-size: cover;
@@ -614,7 +614,7 @@ box-shadow: 0 10px 40px rgba(0,0,0,0.5);
   animation: floatCard 4s ease-in-out infinite alternate;
 }
 .inner-images1 {
-  background-image: url("images/amritsar.webp");
+  background-image: url("./images/amritsar.webp");
   width:350px;
   height: 490px;
   background-size: cover;
@@ -637,7 +637,7 @@ box-shadow: 0 10px 40px rgba(0,0,0,0.5);
 
 
 .inner-images2{
-  background-image: url("images/shimla.webp");
+  background-image: url("./images/shimla.webp");
   width: 350px;
   height: 490px;
   background-size: cover;
@@ -661,7 +661,7 @@ box-shadow: 0 10px 40px rgba(0,0,0,0.5);
 
 
 .inner-images3{
-  background-image: url("images/Ri.jpeg");
+  background-image: url("./images/Ri.jpeg");
   width: 350px;
   height: 490px;
   background-size: cover;
@@ -683,7 +683,7 @@ box-shadow: 0 10px 40px rgba(0,0,0,0.5);
 
 /* } */
 .inner-images4{
-  background-image: url("images/nani.jpg");
+  background-image: url("./images/nani.jpg");
   width: 350px;
   height: 490px;
   background-size: cover;
@@ -705,7 +705,7 @@ box-shadow: 0 10px 40px rgba(0,0,0,0.5);
 } 
 
 .inner-images5{
-  background-image: url("images/prem.jpg");
+  background-image: url("./images/prem.jpg");
   width: 350px;
   height: 490px;
   background-size: cover;
@@ -728,7 +728,7 @@ box-shadow: 0 10px 40px rgba(0,0,0,0.5);
 
 
 .inner-images6{
-  background-image: url("images/jaipur.jpg");
+  background-image: url("./images/jaipur.jpg");
   width: 350px;
   height: 490px;
   background-size: cover;
@@ -749,7 +749,7 @@ box-shadow: 0 10px 40px rgba(0,0,0,0.5);
 } 
 
 .inner-images7{
-  background-image: url("images/ayodhya.jpg");
+  background-image: url("./images/ayodhya.jpg");
   width: 350px;
   height: 490px;
   background-size: cover;

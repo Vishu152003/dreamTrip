@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DreamTrip</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+  <!-- navbar -->
+ <nav>
+      <div class="join">
+        <img src="/images/world-removebg-preview.png" alt="" height="30px" width="30px">
+        <h1 class="hello">Dream<span>Trip</span></h1>
+      </div>
+      <div class="navlinks">
+       <a href="#home">Home</a>
+       <a href="#popular">Popular Destination</a>
+       <a href="#About">About</a>
+       <a href="#feature">Features</a>
+       <a href="#Contact">Contact</a>
+
+
+      </div>
+
+      <div class="button1">
+      <i class="fa-solid fa-sun btn" id="themeToggle" style="font-size: 15px;" ></i>
+      </div>
+
+      
+    </nav>
+
+    <!-- -----------Hero Section---------------- -->
+
+    <section id="home" class="parallax-global" data-speed="0.3">
+          
+      
+      
+
+  <div class="slider-container" id="sliderContainer"  >
+    <div class="slider-wrapper" id="sliderWrapper">
+
+      <!-- Slide 1 -->
+      <div class="slide">
+        <img src="images/tajmahal.jpeg" alt="Taj Mahal" />
+        <div class="dark-overlay"></div>
+        <div class="slide-overlay">
+          <h2>Plan Your Perfect Getaway</h2>
+          <p>Start your dream journey with DreamTrip today!</p>
+          <button class="start-btn" type="button" >Start Planning</button>
+        </div>
+        
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="slide">
+        <img src="images/second.avif" alt="Ancient ruins" />
+        <div class="dark-overlay"></div>
+        <div class="slide-overlay">
+          <h2>Adventure Awaits</h2>
+          <p>Discover thrilling destinations crafted for explorers.</p>
+          <button class="start-btn" type="button">Start Planning</button>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="slide">
+        <img src="images/third.jpg" alt="City skyline" />
+        <div class="dark-overlay"></div>
+        <div class="slide-overlay">
+          <h2>Explore Iconic Cities</h2>
+          <p>Wander, experience, and live your travel dreams.</p>
+          <button class="start-btn" type="button" >Start Planning</button>
+        </div>
+      </div>
+
+      <!-- Slide 4 -->
+      <div class="slide">
+        <img src="images/fourth.jpg" alt="Temple complex" />
+        <div class="dark-overlay"></div>
+        <div class="slide-overlay">
+          <h2>Find Peace in Nature</h2>
+          <p>Reconnect with nature through serene landscapes.</p>
+          <button class="start-btn" type="button" >Start Planning</button>
+        </div>
+      </div>
+
+      <!-- Slide 5 -->
+      <div class="slide">
+        <img src="images/five.jpg" alt="Mountain view" />
+        <div class="dark-overlay"></div>
+        <div class="slide-overlay">
+          <h2>Find Peace in Nature</h2>
+          <p>Reconnect with nature through serene landscapes.</p>
+          <button class="start-btn" type="button" >Start Planning</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Navigation Arrows -->
+    <button class="arrow prev" id="prevBtn" type="button" aria-label="Previous slide">
+      <i class="fas fa-chevron-left"></i>
+    </button>
+    <button class="arrow next" id="nextBtn" type="button" aria-label="Next slide">
+      <i class="fas fa-chevron-right"></i>
+    </button>
+
+    <!-- Dots Indicator -->
+    <div class="dots-container" id="dotsContainer"></div>
+  </div>
+
+</section>
+<!-- Travel form section -->
+  <!-- Hidden Form Popup -->
+   <div id="blurBg" class="blurBg hidden"></div>
+  <div class="form-section hidden" id="formSection">
+      <div class="inner">
+        <div style="display: flex;padding-top: 20px;  ">
+           <h2 class="section-title">
+            <i class="fas fa-map-marked-alt "></i>
+            Create Your Dream India Travel Plan
+            <i class="fa-solid fa-xmark tog" style="padding-left: 40px;"   ></i>
+          </h2>
+        </div>
+        <form id="travelForm" style="padding-right: 70px; padding-top: 10px;">
+          <div class="form-grid" >
+            <div class="form-group" style="border-radius: 10px;">
+              <div class="display:join;gap:10px">
+              <i class="fa-solid fa-location-dot user"></i>
+              <label for="destination">Destination</label>
+              </div>
+              <select id="destination" required>
+                <option value="">Select a destination</option>
+                <option value="agra">Agra, Uttar Pradesh</option>
+                <option value="jaipur">Jaipur, Rajasthan</option>
+                <option value="goa">Goa</option>
+                <option value="kerala">Kerala</option>
+                <option value="varanasi">Varanasi, Uttar Pradesh</option>
+                <option value="mumbai">Mumbai, Maharashtra</option>
+                <option value="delhi">Delhi</option>
+                <option value="darjeeling">Darjeeling, West Bengal</option>
+                <option value="ladakh">Ladakh</option>
+                <option value="rajasthan">Rajasthan</option>
+              </select>
+            </div>
+            
+
+
+            <div class="form-group">
+              <div class="display:join;gap:10px">
+              <i class="fas fa-hourglass-half user"></i>
+              <label for="duration">Duration (days)</label>
+              </div>
+              <input type="number" id="duration" min="1" max="30" value="7" required>
+            </div>
+
+            <div class="form-group">
+              <div class="display:flex;gap:10px">
+              <i class="fa-solid fa-users user"></i>
+              <label for="travelers">Number of Travelers</label>
+              <input type="number" id="travelers" min="1" max="10" value="2" required>
+            </div>
+
+            <div class="form-group" style="padding-top: 10px;">
+              <div class="display:flex; gap:10px">
+              <i class="fas fa-cloud-sun user"></i>
+              <label for="season">Season</label>
+              </div>
+              </div>
+
+              <select id="season" required>
+                <option value="" style="font-size: 15px;font-family: 'Roboto',sans-serif;">Select a season</option>
+                <option value="winter" style="font-size: 15px;font-family: 'Roboto',sans-serif;">Winter (Oct-Feb)</option>
+                <option value="summer" style="font-size: 15px;font-family: 'Roboto',sans-serif;">Summer (Mar-Jun)</option>
+                <option value="monsoon" style="font-size: 15px;font-family: 'Roboto',sans-serif;">Monsoon (Jul-Sep)</option>
+              </select>
+            </div>
+          </div>
+
+          
+          <div class="interest-container">
+  <div class="display:flex;gap:10px;align-items:center;">
+    <i class="fa-solid fa-person-hiking user"></i>
+    <label>Interests</label>
+  </div>
+
+  <div class="interest-buttons">
+    <button type="button" class="interest-btn">Adventure</button>
+    <button type="button" class="interest-btn">Cuisine</button>
+    <button type="button" class="interest-btn">Spirituality</button>
+    <button type="button" class="interest-btn">Beaches</button>
+    <button type="button" class="interest-btn">Wildlife</button>
+  </div>
+</div>
+
+          <div class="budget-container">
+            <div class="display:flex;gap:10px">
+            <i class="fas fa-money-bill-wave user"></i>
+            <label for="budget">Budget (INR)</label>
+            </div>
+            <input type="range" id="budget" class="budget-slider" min="5000" max="100000" value="25000" step="1000">
+            <div class="budget-display">
+              <span>₹5,000</span>
+              <span id="budgetValue">₹25,000</span>
+              <span>₹1,00,000</span>
+            </div>
+          </div>
+
+          <button type="submit" class="generate-btn">
+            <i class="fas fa-magic"></i>
+            Generate Travel Plan
+          </button>
+        </form>
+      </div>
+      </div>
+
+      
+<!-- popular destination:- Cards section -->
+
+      <section class="popular-places parallax-horizontal" id="popular" data-speed="0.3">
+        <h1 class="heading">Find Out The Best </h1>
+        <h1 class="heading">Travel Choice in India</h1>
+       <div class="images">
+        <div class="inner-images">
+          <div  style="padding-top: 95%;">
+          <div class="text">
+      <p style="font-size: 28px; font-family:'Merriweather', serif;font-weight:900;color: white;letter-spacing: 1px;">Taj Mahal</p>
+      <p style="font-size: 14px; font-family:'Karla',sans-serif;font-weight:bold;color: white;padding-top: 5px;">Start From</p>
+      </div>
+      <div class="text">
+      <div style="display: flex;gap:6px">
+         <i class="fa-solid fa-location-dot" style="padding-top: 5px;color: white;"></i>
+        <p style="font-size: 18px; font-family:'Playfair Display', serif;font-weight:900;color:white" >Agra</p>
+      </div>
+      <p style="font-size: 35px; font-family:'Playfair Display', serif;font-weight:900;color:white;">&#8377;4,999</p>
+      </div>
+      
+
+      </div>
+      <div style="display: flex;align-items: center;justify-content: center;gap:10px;padding-top: 8px;">
+     <a href="agra.html">
+        <button class="more-btn">Know more</button>
+      </a>  
+      <a href="booking.html">
+      <button class="more-btn">Book Now</button>
+      </a>
+      </div>
+      </div>
+
+
+      <div class="inner-images1">
+          <div  style="padding-top: 95%;">
+          <div class="text">
+      <p style="font-size: 28px; font-family:'Merriweather', serif;font-weight:900;color: white;letter-spacing: 1px;">Golden Temple</p>
+      <p style="font-size: 14px; font-family:'Karla',sans-serif;font-weight:bold;color: white;padding-top: 5px;">Start From</p>
+      </div>
+      <div class="text">
+      <div style="display: flex;gap:6px">
+         <i class="fa-solid fa-location-dot" style="padding-top: 5px;color: white;"></i>
+        <p style="font-size: 18px; font-family:'Playfair Display', serif;font-weight:900;color:white" >Amritsar</p>
+      </div>
+      <p style="font-size: 35px; font-family:'Playfair Display', serif;font-weight:900;color:white;">&#8377;5,999</p>
+      </div>
+      
+
+      </div>
+      <div style="display: flex;align-items: center;justify-content: center;gap:10px;padding-top: 8px;" >
+      <div class="effe">
+      <a href="golden.html">
+      <button class="more-btn">Know more</button>
+      </a>
+      </div>
+      <a href="booking.html">
+      <button class="more-btn">Book Now</button>
+      </a>
+      </div>
+      </div>
+      
+      <div class="inner-images2">
+          <div  style="padding-top: 95%;">
+          <div class="text">
+      <p style="font-size: 28px; font-family:'Merriweather', serif;font-weight:900;color: white;;">Shimla & Manali </p>
+      <p style="font-size: 14px; font-family:'Karla',sans-serif;font-weight:bold;color: white;padding-top: 5px;">Start From</p>
+      </div>
+      <div class="text">
+      <div style="display: flex;gap:6px">
+         <i class="fa-solid fa-location-dot" style="padding-top: 5px;color: white;"></i>
+        <p style="font-size: 18px; font-family:'Playfair Display', serif;font-weight:900;color:white" >Himachal Pradesh</p>
+      </div>
+      <p style="font-size: 35px; font-family:'Playfair Display', serif;font-weight:900;color:white;">&#8377;13,999</p>
+      </div>
+      
+
+      </div>
+      <div style="display: flex;align-items: center;justify-content: center;gap:10px;padding-top: 8px;">
+      <a href="shimla.html">
+      <button class="more-btn">Know more</button>
+      </a>
+      <a href="booking.html">
+      <button class="more-btn">Book Now</button>
+      </a>
+      </div>
+      </div>
+
+      <div class="inner-images3">
+          <div  style="padding-top: 95%;">
+          <div class="text">
+      <p style="font-size: 28px; font-family:'Merriweather', serif;font-weight:900;color: white;letter-spacing: 1px;">Rishikesh </p>
+      <p style="font-size: 14px; font-family:'Karla',sans-serif;font-weight:bold;color: white;padding-top: 5px;">Start From</p>
+      </div>
+      <div class="text">
+      <div style="display: flex;gap:6px">
+         <i class="fa-solid fa-location-dot" style="padding-top: 5px;color: white;"></i>
+        <p style="font-size: 18px; font-family:'Playfair Display', serif;font-weight:900;color:white" >Uttrakand</p>
+      </div>
+      <p style="font-size: 35px; font-family:'Playfair Display', serif;font-weight:900;color:white;">&#8377;8,599</p>
+      </div>
+      
+
+      </div>
+      <div style="display: flex;align-items: center;justify-content: center;gap:10px;padding-top: 8px;">
+      <a href="rishikesh.html">
+        <button class="more-btn">Know more</button>
+        </a>
+        <a href="booking.html">
+      <button class="more-btn">Book Now</button>
+      </a>
+      </div>
+      </div>
+          </div>
+          <div class="images1">
+          <div class="inner-images4">
+          <div  style="padding-top: 95%;">
+          <div class="text">
+      <p style="font-size: 28px; font-family:'Merriweather', serif;font-weight:900;color: white;letter-spacing: 1px;"> Jim Corbett </p>
+      <p style="font-size: 14px; font-family:'Karla',sans-serif;font-weight:bold;color: white;padding-top: 5px;">Start From</p>
+      </div>
+      <div class="text">
+      <div style="display: flex;gap:6px">
+         <i class="fa-solid fa-location-dot" style="padding-top: 5px;color: white;"></i>
+        <p style="font-size: 18px; font-family:'Playfair Display', serif;font-weight:900;color:white" >Uttrakand</p>
+      </div>
+      <p style="font-size: 35px; font-family:'Playfair Display', serif;font-weight:900;color:white;">&#8377;13,599</p>
+      </div>
+      
+
+      </div>
+      <div style="display: flex;align-items: center;justify-content: center;gap:10px;padding-top: 8px;">
+      <a href="jim.html">
+        <button class="more-btn">Know more</button>
+      </a>
+      <a href="booking.html">
+      <button class="more-btn">Book Now</button>
+      </a>
+      </div>
+      </div>
+      
+      <div class="inner-images5">
+          <div  style="padding-top:85%;">
+          <div class="text">
+            <div style="display: flex;flex-direction: column;">
+      <p style="font-size: 28px; font-family:'Merriweather', serif;;font-weight:900;color: white;"> Mathura </p>
+      <p style="font-size: 28px; font-family:'Merriweather', serif;font-weight:900;color: white;"> Vrindavan </p>
+      </div>
+      <p style="font-size: 14px; font-family:'Karla',sans-serif;font-weight:bold;color: white;padding-top: 28px;">Start From</p>
+      </div>
+      <div class="text">
+      <div style="display: flex;gap:6px">
+         <i class="fa-solid fa-location-dot" style="padding-top: 5px;color: white;"></i>
+        <p style="font-size: 18px; font-family:'Playfair Display', serif;font-weight:900;color:white" >Uttar Pradesh</p>
+      </div>
+      <p style="font-size: 35px; font-family:'Playfair Display', serif;font-weight:900;color:white;">&#8377;3,499</p>
+      </div>
+      
+
+      </div>
+      <div style="display: flex;align-items: center;justify-content: center;gap:10px;padding-top: 8px;">
+      <a href="vrindavan.html">
+        <button class="more-btn">Know more</button>
+      </a>
+      <a href="booking.html">
+      <button class="more-btn">Book Now</button>
+      </a>
+      </div>
+      </div>
+     
+      <div class="inner-images6">
+          <div  style="padding-top: 95%;">
+          <div class="text">
+      <p style="font-size: 28px; font-family:'Merriweather', serif;letter-spacing: 1px;font-weight:900;color: white;"> Jaipur </p>
+      <p style="font-size: 14px; font-family:'Karla',sans-serif;font-weight:bold;color: white;padding-top: 5px;">Start From</p>
+      </div>
+      <div class="text">
+      <div style="display: flex;gap:6px">
+         <i class="fa-solid fa-location-dot" style="padding-top: 5px;color: white;"></i>
+        <p style="font-size: 18px; font-family:'Playfair Display', serif;font-weight:900;color:white" >Rajasthan</p>
+      </div>
+      <p style="font-size: 35px; font-family:'Playfair Display', serif;font-weight:900;color:white;">&#8377;6,499</p>
+      </div>
+      
+
+      </div>
+      <div style="display: flex;align-items: center;justify-content: center;gap:10px;padding-top: 8px;">
+        <a href="jaipur.html">
+      <button class="more-btn">Know more</button>
+      </a>
+      <a href="booking.html">
+      <button class="more-btn">Book Now</button>
+      </a>
+      </div>
+      </div>
+
+      <div class="inner-images7">
+          <div  style="padding-top: 95%;">
+          <div class="text">
+      <p style="font-size: 28px; font-family:'Merriweather', serif;letter-spacing: 1px;  font-weight:900;color: white;"> Ayodhya</p>
+      <p style="font-size: 14px; font-family:'Karla',sans-serif;font-weight:bold;color: white;padding-top: 5px;">Start From</p>
+      </div>
+      <div class="text">
+      <div style="display: flex;gap:6px">
+         <i class="fa-solid fa-location-dot" style="padding-top: 5px;color: white;"></i>
+        <p style="font-size: 18px; font-family:'Playfair Display', serif;font-weight:900;color:white" >Uttar Pradesh</p>
+      </div>
+      <p style="font-size: 35px; font-family:'Playfair Display', serif;font-weight:900;color:white;">&#8377;7,999</p>
+      </div>
+      
+
+      </div>
+      <div style="display: flex;align-items: center;justify-content: center;gap:10px;padding-top: 8px;">
+      <a href="ayodhya.html">
+        <button class="more-btn">Know more</button>
+        </a>
+        <a href="booking.html">
+      <button class="more-btn">Book Now</button>
+      </a>
+      </div>
+      </div>
+
+          </div>
+        </div>
+      </section>
+
+   
+ <section class="about-section" id="About">
+
+  <div class="about-content">
+
+    <!-- Left: Text Box -->
+    <div class="about-box glass-effect">
+      <span class="label">Our Story</span>
+
+      <h2>Crafting Journeys, Not Just Trips</h2>
+
+      <p >
+        DreamTrip is an interactive platform that personalizes your travel experience through
+        smooth animations, elegant design, and a user-friendly interface. Choose your destination,
+        duration, and interests — and instantly receive a beautifully crafted travel plan.
+      </p>
+
+      <p>
+        With real-time visual feedback, interactive map animations, and a seamless trip history
+        manager, DreamTrip transforms planning into an exciting digital journey. Each plan can be
+        saved, viewed, or deleted with a single click.
+      </p>
+
+      <a href="#home">
+        <button class="more-btn1">Discover More</button>
+      </a>
+    </div>
+
+    <!-- Right: Premium Image Bubble -->
+    <div class="about-image-bubble">
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=60" />
+    </div>
+
+  </div>
+
+</section>
+
+
+<section>
+<div class="about-text1">
+        <h2 class="heading1" style="color:#1b3da0;font-size: 45px;text-align: center;padding-top: 40px;">What Makes Us Special</h2>
+              </div>
+      <div class="features">
+
+  <div class="feature-card " id="feature">
+    <div class="feature-icon">
+      <i class="fas fa-map-marked-alt"></i>
+    </div>
+    <h3>Personalized Planning</h3>
+    <p>Create custom travel plans based on your preferences, interests, and budget</p>
+  </div>
+
+  <div class="feature-card">
+    <div class="feature-icon">
+      <i class="fas fa-globe-asia"></i>
+    </div>
+    <h3>Explore India</h3>
+    <p>Discover amazing destinations across India with detailed information and recommendations</p>
+  </div>
+
+  <div class="feature-card">
+    <div class="feature-icon">
+      <i class="fas fa-history"></i>
+    </div>
+    <h3>Trip History</h3>
+    <p>Save and manage all your travel plans in one place for future reference</p>
+  </div>
+
+  <div class="feature-card">
+    <div class="feature-icon">
+      <i class="fas fa-palette"></i>
+    </div>
+    <h3>Beautiful Interface</h3>
+    <p>Enjoy a visually stunning experience with smooth animations and transitions</p>
+  </div>
+
+</div>
+
+</center>
+</section>
+<!-- ---Faq section -->
+ <br><br>
+<section class="faq-section">
+<div class="faq-header">
+<h2>Frequently Asked Questions</h2>
+<p>Your travel queries, answered with love ✈️🌍</p>
+</div>
+
+<center>
+<div class="faq-box">
+<div class="faq-question">
+<span style="font-size: 24px;">How does DreamTrip generate travel plans?</span>
+<i class="fa-solid fa-chevron-down"></i>
+</div>
+<div class="faq-answer">
+DreamTrip uses smart filters & travel preferences such as budget, duration, and interests to suggest personalized destinations & activities.
+</div>
+</div>
+
+
+<div class="faq-box">
+<div class="faq-question">
+<span style="font-size: 24px;">Do I need to create an account to save my trip?</span>
+<i class="fa-solid fa-chevron-down"></i>
+</div>
+<div class="faq-answer">
+No. DreamTrip uses local storage so you can save, view & delete travel plans without logging in.
+</div>
+</div>
+
+
+<div class="faq-box">
+<div class="faq-question">
+<span style="font-size: 24px;">Can I customize my trip after generating it?</span>
+<i class="fa-solid fa-chevron-down"></i>
+</div>
+<div class="faq-answer">
+Yes! You can edit preferences anytime and generate a fresh plan instantly.
+</div>
+</div>
+
+
+<div class="faq-box">
+<div class="faq-question">
+<span style="font-size: 24px;">Is DreamTrip free to use?</span>
+<i class="fa-solid fa-chevron-down"></i>
+</div>
+<div class="faq-answer">
+Yes — DreamTrip is completely free and always will be.
+</div>
+</div>
+
+
+<div class="faq-box">
+<div class="faq-question">
+<span style="font-size: 24px;">Can I plan trips outside India?</span>
+<i class="fa-solid fa-chevron-down"></i>
+</div>
+<div class="faq-answer">
+For now, DreamTrip focuses on popular destinations across India. International trip planning is coming soon.
+</div>
+</div>
+</center>
+</section>
+<!-- contact -->
+<section class="contact-section" id="Contact">
+
+
+<div class="text-block">
+<span class="heading" style="padding-left: 40%;color:#1b3da0;font-weight: 900;font-size: 45px;">Contact Us</span>
+<h1 style="line-height: 1.9;padding-top: 30px;font-size: 35px;">We're Here To Help You Travel 🎒✈️</h1>
+<p style="font-size: 24px;font-weight: 500;">Have questions about travel planning, dream destinations or guidance for your next adventure? Reach out — we’d love to help.</p>
+</div>
+<br><br>
+
+<div class="glass-box" id="contactCard">
+<h3>Send us a message</h3>
+<form id="contactForm">
+  
+<input id="name" type="text" placeholder="Your Name" required>
+<input id="email" type="email" placeholder="Your Email" required>
+<textarea id="message" placeholder="Write your message..." required></textarea>
+<button id="sendBtn" type="submit" onclick="Detail(event);">Send Message</button>
+</form>
+
+
+<div class="info-ribbon">
+<span><i class="fa-solid fa-envelope"></i> support@dreamtrip.com</span>
+<span><i class="fa-solid fa-phone"></i> +91 99989241250</span>
+</div>
+
+
+<div class="toast" id="toast" style="font-size: 20px;padding-top: 20px;">Message sent — we'll reply soon! ✨</div>
+</div>
+</section>
+<!-- <section class="top"> -->
+<button class="back" id="backtotop"><i class="fa-solid fa-arrow-up"></i></button>
+
+<!-- </section> -->
+
+<footer class="dream-footer">
+  <div class="footer-container">
+
+    <!-- Logo + tagline -->
+    <div class="footer-col">
+      <h2 class="footer-logo">DreamTrip</h2>
+      <p style="font-size: 15px;line-height: 1.5;font-family: 'Roboto';letter-spacing: 1px;">Plan your perfect journey with smart travel suggestions & curated itineraries.</p>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-col">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#popular">Destination</a></li>
+        <li><a href="#About">About</a></li>
+        <li><a href="#feature">Features</a></li>
+        <li><a href="#Contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact -->
+    <div class="footer-col">
+      <h3 style="font-family:'Roboto',sans-serif;">Contact</h3>
+      <p style="font-family: 'Roboto',sans-serif;letter-spacing: 1px;line-height: 1.5;font-size: 15px;" >Email: support@dreamtrip.com</p>
+      <p style="font-family: 'Roboto',sans-serif;letter-spacing: 1px;line-height: 1.9;font-size: 15px;">Phone:  +91 99989241250</p>
+    </div>
+
+    <!-- Social -->
+    <div class="footer-col">
+      <h3>Follow Us</h3>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 DreamTrip. All Rights Reserved.</p>
+  </div>
+</footer>
+
+
+<!-- Overlay -->
+  <div class="overlay" id="overlay"></div>
+  <script src="script.js"></script>
+  
+
+</body>
+</html>

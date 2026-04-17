@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore Shimla & Manali | DreamTrip</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif;}
+
+    body {
+      background: linear-gradient(to bottom, #f6faff, #fffdf9);
+      overflow-x: hidden;
+      color: #222;
+    }
+
+    /* Hero Section */
+    .hero {
+      background-image: url("/images/ahimla.jpg");
+      height: 500px;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      color: white;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    .hero-content h1 {
+      font-size: 3.5rem;
+      letter-spacing: 1px;
+      text-shadow: 2px 2px 15px rgba(0,0,0,0.6);
+    }
+
+    .hero-content p {
+      margin-top: 15px;
+      font-size: 1.2rem;
+      color: #f8f8f8;
+    }
+
+    .hero-content a {
+      display: inline-block;
+      margin-top: 25px;
+      background: linear-gradient(135deg, #00b4d8, #0077b6);
+      color: white;
+      padding: 12px 30px;
+      border-radius: 30px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .hero-content a:hover {
+      background: linear-gradient(135deg, #0077b6, #00b4d8);
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    /* About Section */
+    .about {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 80px 8%;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    .about-text {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .about-text h2 {
+      font-size: 2rem;
+      color: #0077b6;
+      margin-bottom: 15px;
+    }
+
+    .about-text p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #333;
+    }
+
+    .about-slider {
+      flex: 1;
+      display: flex;
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+      position: relative;
+    }
+
+    .about-slider img {
+      width: 100%;
+      animation: slide 15s infinite;
+    }
+
+    @keyframes slide {
+      0%, 20% {transform: translateX(0);}
+      25%, 45% {transform: translateX(-100%);}
+      50%, 70% {transform: translateX(-200%);}
+      75%, 100% {transform: translateX(0);}
+    }
+
+    /* Attractions Section */
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      color: #0077b6;
+      margin: 70px 0 20px;
+    }
+
+    .places {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      padding: 0 8%;
+    }
+
+    .place-card {
+      background: rgba(255,255,255,0.25);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 6px 25px rgba(0,0,0,0.1);
+      transition: all 0.4s;
+      position: relative;
+    }
+
+    .place-card:hover {
+      transform: translateY(-10px) scale(1.03);
+    }
+
+    .place-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .place-info {
+      padding: 20px;
+    }
+
+    .place-info h3 {
+      font-size: 1.3rem;
+      color: #0077b6;
+      margin-bottom: 10px;
+    }
+
+    .place-info p {
+      font-size: 0.95rem;
+      color: #444;
+    }
+
+    /* Video Section */
+    .video {
+      text-align: center;
+      margin: 70px 0;
+    }
+
+    .video iframe {
+      width: 75%;
+      height: 420px;
+      border-radius: 15px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    }
+
+    /* Buttons */
+    .action-buttons {
+      text-align: center;
+      margin: 70px 0;
+    }
+
+    .action-buttons a {
+      display: inline-block;
+      margin: 10px;
+      padding: 14px 35px;
+      border-radius: 35px;
+      color: white;
+      background: linear-gradient(135deg, #00b4d8, #0077b6);
+      font-weight: bold;
+      text-decoration: none;
+      transition: 0.3s;
+      box-shadow: 0 4px 10px rgba(0, 119, 182, 0.3);
+    }
+
+    .action-buttons a:hover {
+      transform: translateY(-5px);
+      background: linear-gradient(135deg, #0077b6, #00b4d8);
+    }
+
+    footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+    }
+    .var{
+      width: 80%;
+      line-height: 1.6;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Shimla & Manali — The Queen of Hills</h1>
+      <p>Snowy peaks, pine forests, and a journey through Himachal’s heavenly beauty.</p>
+      <a href="#about"><i class="fa-solid fa-arrow-down"></i> Discover More</a>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="about-text">
+      <div class="var">
+      <h2 style="font-family: cursive;font-size: 40px;text-transform:initial;text-shadow:tan;">About Shimla & Manali</h2>
+      <p style="font-family:'Roboto',sans-serif;font-size: 20px;letter-spacing: 1px;">Shimla, the capital of Himachal Pradesh, is known as the ‘Queen of Hills’ with colonial charm, mall roads, and scenic mountain views. Manali, nestled in the Beas River Valley, is a paradise for adventure lovers offering snow-capped peaks, temples, and river rafting. Together, they form one of India’s most loved hill station circuits, offering beauty, peace, and thrill in equal measure.</p>
+      </div>
+    </div>
+    <div class="about-slider">
+      <img src="images/city1.webp" alt="Shimla City">
+      <img src="images/rohtand.jpg" alt="Rohtang Pass">
+      <img src="images/town3.webp" alt="Manali Town">
+    </div>
+  </section>
+
+  <h2 class="section-title" style="font-family: cursive;font-size: 40px;padding-bottom: 30px;">Top Attractions to Visit</h2>
+  <div class="places">
+    <div class="place-card">
+      <img src="/images/ridge.jpg" alt="The Ridge Shimla">
+      <div class="place-info">
+        <h3 style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: 30px;font-weight: 600;">The Ridge, Shimla</h3>
+        <p style="line-height: 1.6;font-size: 18px;color: rgb(87, 86, 86);font-family:serif;">Heart of Shimla city, offering panoramic mountain views and colonial architecture.</p>
+      </div>
+    </div>
+
+    <div class="place-card">
+      <img src="/images/mall.jpg" alt="Mall Road Shimla">
+      <div class="place-info">
+        <h3 style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: 30px;font-weight: 600;">Mall Road</h3>
+        <p style="line-height: 1.6;font-size: 18px;color: rgb(87, 86, 86);font-family:serif;">Famous for shopping, cafés, and heritage walks along the picturesque hills.</p>
+      </div>
+    </div>
+
+    <div class="place-card">
+      <img src="/images/ro.webp" alt="Rohtang Pass">
+      <div class="place-info">
+        <h3 style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: 30px;font-weight: 600;">Rohtang Pass</h3>
+        <p style="line-height: 1.6;font-size: 18px;color: rgb(87, 86, 86);font-family:serif;">A must-visit snow-covered gateway connecting Manali to the Lahaul–Spiti valleys.</p>
+      </div>
+    </div>
+
+    <div class="place-card">
+      <img src="/images/hadimba.jpg" alt="Hadimba Temple">
+      <div class="place-info">
+        <h3 style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: 30px;font-weight: 600;">Hadimba Temple</h3>
+        <p style="line-height: 1.6;font-size: 18px;color: rgb(87, 86, 86);font-family:serif;">An ancient wooden temple surrounded by cedar forests dedicated to Goddess Hadimba Devi.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="video">
+    <h2 class="section-title" style="padding-bottom: 30px;font-family: cursive;">Experience Shimla–Manali</h2>
+    <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/2U7J7v2xHHk" title="Shimla Manali Travel Guide" frameborder="0" allowfullscreen></iframe> -->
+     <iframe width="560" height="315" src="https://www.youtube.com/embed/xcMBOUr2GfA?si=QXOzJmSEJcKFmoit" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
+
+  <div class="action-buttons">
+    <a href="booking.html"><i class="fa-solid fa-ticket"></i> Book Now</a>
+    <a href="index1.html"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+  </div>
+
+  <footer>
+    <p>© 2025 DreamTrip | Designed with love for travelers</p>
+  </footer>
+
+</body>
+</html>

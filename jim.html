@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore Jim Corbett National Park | DreamTrip</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif;}
+
+    body {
+      background: linear-gradient(to bottom, #f6fff8, #fffdf9);
+      overflow-x: hidden;
+      color: #222;
+    }
+
+    /* Hero Section */
+    .hero {
+      background-image: url("/images/corbette.jpg");
+      height: 500px;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      color: white;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    .hero-content h1 {
+      font-size: 3.5rem;
+      letter-spacing: 1px;
+      text-shadow: 2px 2px 15px rgba(0,0,0,0.6);
+    }
+
+    .hero-content p {
+      margin-top: 15px;
+      font-size: 1.2rem;
+      color: #f8f8f8;
+    }
+
+    .hero-content a {
+      display: inline-block;
+      margin-top: 25px;
+      background: linear-gradient(135deg, #0b8457, #2a9d8f);
+      color: white;
+      padding: 12px 30px;
+      border-radius: 30px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .hero-content a:hover {
+      background: linear-gradient(135deg, #2a9d8f, #0b8457);
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    /* About Section */
+    .about {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 80px 8%;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    .about-text {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .about-text h2 {
+      font-size: 2rem;
+      color: #0b8457;
+      margin-bottom: 15px;
+    }
+
+    .about-text p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #333;
+    }
+
+    .about-slider {
+      flex: 1;
+      display: flex;
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+      position: relative;
+    }
+
+    .about-slider img {
+      width: 100%;
+      animation: slide 15s infinite;
+    }
+
+    @keyframes slide {
+      0%, 20% {transform: translateX(0);}
+      25%, 45% {transform: translateX(-100%);}
+      50%, 70% {transform: translateX(-200%);}
+      75%, 100% {transform: translateX(0);}
+    }
+
+    /* Attractions Section */
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      color: #0b8457;
+      margin: 70px 0 20px;
+    }
+
+    .places {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      padding: 0 8%;
+    }
+
+    .place-card {
+      background: rgba(255,255,255,0.25);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 6px 25px rgba(0,0,0,0.1);
+      transition: all 0.4s;
+      position: relative;
+    }
+
+    .place-card:hover {
+      transform: translateY(-10px) scale(1.03);
+    }
+
+    .place-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .place-info {
+      padding: 20px;
+    }
+
+    .place-info h3 {
+      font-size: 1.3rem;
+      color: #0b8457;
+      margin-bottom: 10px;
+    }
+
+    .place-info p {
+      font-size: 0.95rem;
+      color: #444;
+    }
+
+    /* Video Section */
+    .video {
+      text-align: center;
+      margin: 70px 0;
+    }
+
+    .video iframe {
+      width: 75%;
+      height: 420px;
+      border-radius: 15px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    }
+
+    /* Buttons */
+    .action-buttons {
+      text-align: center;
+      margin: 70px 0;
+    }
+
+    .action-buttons a {
+      display: inline-block;
+      margin: 10px;
+      padding: 14px 35px;
+      border-radius: 35px;
+      color: white;
+      background: linear-gradient(135deg, #0b8457, #2a9d8f);
+      font-weight: bold;
+      text-decoration: none;
+      transition: 0.3s;
+      box-shadow: 0 4px 10px rgba(11, 132, 87, 0.3);
+    }
+
+    .action-buttons a:hover {
+      transform: translateY(-5px);
+      background: linear-gradient(135deg, #2a9d8f, #0b8457);
+    }
+
+    footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+    }
+    var{
+      width: 80%;
+      line-height: 1.6;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Jim Corbett National Park — The Wild Heart of India</h1>
+      <p>Experience the thrill of wildlife, lush forests, and the call of the tiger.</p>
+      <a href="#about"><i class="fa-solid fa-arrow-down"></i> Discover More</a>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="about-text">
+      <h2 style="font-family: cursive;font-size: 40px;text-transform:initial;text-shadow:tan;">About Jim Corbett National Park</h2>
+      <div class="var">
+      <p>Located in Uttarakhand, Jim Corbett National Park is India’s oldest national park and a haven for wildlife lovers. Established in 1936, it is renowned for its Bengal tigers, elephants, and diverse flora and fauna. Spread across 500 sq km, Corbett offers thrilling jungle safaris, birdwatching, and serene stays in nature lodges — making it one of India’s best eco-tourism destinations.</p>
+      </div>
+    </div>
+    <div class="about-slider">
+      <img src="/images/tiger.jpg" alt="Tiger in Corbett">
+      <img src="/images/elephant.jpeg" alt="Elephants in Corbett">
+      <img src="/images/land.jpg" alt="Corbett Landscape">
+    </div>
+  </section>
+  
+  <h2 class="section-title" style="font-size: 40px;font-family: cursive;padding-bottom: 20px;">Top Attractions to Visit</h2>
+  <div class="places">
+    <div class="place-card">
+      <img src="/images/dikhala.webp" alt="Dhikala Zone">
+      <div class="place-info">
+        <h3 style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: 30px;font-weight: 600;">Dhikala Zone</h3>
+        <p style="line-height: 1.6;font-size: 18px;color: rgb(87, 86, 86);font-family:serif;">The most popular safari zone, home to tigers, elephants, and breathtaking landscapes.</p>
+      </div>
+    </div>
+
+    <div class="place-card">
+      <img src="/images/temple.jpg" alt="Garjiya Temple">
+      <div class="place-info">
+        <h3 style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: 30px;font-weight: 600;">Garjiya Devi Temple</h3>
+        <p style="line-height: 1.6;font-size: 18px;color: rgb(87, 86, 86);font-family:serif;">A sacred temple located on a large rock in the Kosi River — a must-visit for peace seekers.</p>
+      </div>
+    </div>
+
+    <div class="place-card">
+      <img src="/images/waterfall.jpg" alt="Corbett Waterfall">
+      <div class="place-info">
+        <h3 style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: 30px;font-weight: 600;">Corbett Waterfall</h3>
+        <p style="line-height: 1.6;font-size: 18px;color: rgb(87, 86, 86);font-family:serif;">A serene waterfall surrounded by dense teak forest, perfect for picnics and relaxation.</p>
+      </div>
+    </div>
+
+    <div class="place-card">
+      <img src="/images/bird.jpg" alt="Bird Watching">
+      <div class="place-info">
+        <h3 style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: 30px;font-weight: 600;">Bird Watching</h3>
+        <p style="line-height: 1.6;font-size: 18px;color: rgb(87, 86, 86);font-family:serif;">Spot over 600 bird species including kingfishers, crested eagles, and Himalayan bulbuls.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="video">
+    <h2 class="section-title" style="font-family: cursive;padding-bottom: 30px;">Experience Jim Corbett</h2>
+    <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/XEbm0JtR9BY" title="Jim Corbett Travel Guide" frameborder="0" allowfullscreen></iframe> -->
+     <iframe width="560" height="315" src="https://www.youtube.com/embed/iBuXvgPR2No?si=3FVDMqMug_1ETbOP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
+
+  <div class="action-buttons">
+    <a href="booking.html"><i class="fa-solid fa-ticket"></i> Book Now</a>
+    <a href="index1.html"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+  </div>
+
+  <footer>
+    <p>© 2025 DreamTrip | Designed with love for travelers</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adventure Peaks - Your Gateway to Himalayan Adventures</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #e74c3c;
+            --accent-color: #3498db;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+            --transition: all 0.3s ease;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1rem;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+        
+        a:hover {
+            color: var(--secondary-color);
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+        
+        .header-top {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 8px 0;
+            font-size: 0.9rem;
+        }
+        
+        .header-top-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .contact-info {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .contact-info a {
+            color: #fff;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            color: #fff;
+            font-size: 1.1rem;
+        }
+        
+        .header-main {
+            padding: 15px 0;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo img {
+            height: 50px;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.8rem;
+            margin: 0;
+            color: var(--primary-color);
+        }
+        
+        .logo-text p {
+            font-size: 0.8rem;
+            margin: 0;
+            color: var(--secondary-color);
+        }
+        
+        .main-nav {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .main-nav a {
+            font-weight: 500;
+            position: relative;
+            padding-bottom: 5px;
+        }
+        
+        .main-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary-color);
+            transition: var(--transition);
+        }
+        
+        .main-nav a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://picsum.photos/seed/himalaya/1920/1080.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease 0.5s both;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--secondary-color);
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            animation: fadeInUp 1s ease 1s both;
+        }
+        
+        .btn:hover {
+            background-color: #c0392b;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid #fff;
+            margin-left: 10px;
+        }
+        
+        .btn-outline:hover {
+            background-color: #fff;
+            color: var(--primary-color);
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        
+        .feature-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .feature-card:hover .card-img img {
+            transform: scale(1.1);
+        }
+        
+        .card-content {
+            padding: 25px;
+        }
+        
+        .card-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .card-content p {
+            margin-bottom: 20px;
+            color: #666;
+        }
+        
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 25px 25px;
+        }
+        
+        .price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+        }
+        
+        .price span {
+            font-size: 0.9rem;
+            text-decoration: line-through;
+            color: #999;
+            margin-left: 10px;
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+        
+        .testimonial-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 30px;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 4rem;
+            color: rgba(0, 0, 0, 0.05);
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .testimonial-text {
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .author-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        
+        .author-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+        
+        .author-info p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .rating {
+            color: #f39c12;
+            margin-bottom: 15px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--secondary-color);
+        }
+        
+        .footer-column p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #bbb;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: #fff;
+            padding-left: 5px;
+        }
+        
+        .contact-info {
+            list-style: none;
+        }
+        
+        .contact-info li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .contact-info i {
+            color: var(--secondary-color);
+            width: 20px;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #bbb;
+        }
+        
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .main-nav {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-top {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .logo-text h1 {
+                font-size: 1.5rem;
+            }
+            
+            .logo-text p {
+                font-size: 0.7rem;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .feature-cards, .testimonial-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 300px;
+            height: 100vh;
+            background-color: var(--primary-color);
+            z-index: 1001;
+            transition: var(--transition);
+            padding: 20px;
+            overflow-y: auto;
+        }
+        
+        .mobile-menu.active {
+            right: 0;
+        }
+        
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .mobile-menu-close {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .mobile-nav {
+            list-style: none;
+        }
+        
+        .mobile-nav li {
+            margin-bottom: 15px;
+        }
+        
+        .mobile-nav a {
+            color: #fff;
+            font-size: 1.1rem;
+            display: block;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            display: none;
+        }
+        
+        .overlay.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-top">
+            <div class="container">
+                <div class="header-top-content">
+                    <div class="contact-info">
+                        <a href="tel:+919876543210"><i class="fas fa-phone"></i> +91 98765 43210</a>
+                        <a href="mailto:info@adventurepeaks.com"><i class="fas fa-envelope"></i> info@adventurepeaks.com</a>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-main">
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo">
+                        <img src="https://picsum.photos/seed/logo/100/100.jpg" alt="Adventure Peaks Logo">
+                        <div class="logo-text">
+                            <h1>Adventure <span style="color: var(--secondary-color);">Peaks</span></h1>
+                            <p>Your Gateway to Himalayan Adventures</p>
+                        </div>
+                    </div>
+                    <nav class="main-nav">
+                        <a href="#home">Home</a>
+                        <a href="#about">About</a>
+                        <a href="#treks">Treks</a>
+                        <a href="#activities">Activities</a>
+                        <a href="#gallery">Gallery</a>
+                        <a href="#contact">Contact</a>
+                    </nav>
+                    <button class="mobile-menu-btn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <div class="mobile-menu-header">
+            <div class="logo">
+                <img src="https://picsum.photos/seed/logo/100/100.jpg" alt="Adventure Peaks Logo">
+                <div class="logo-text">
+                    <h1>Adventure <span style="color: var(--secondary-color);">Peaks</span></h1>
+                </div>
+            </div>
+            <button class="mobile-menu-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul class="mobile-nav">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#treks">Treks</a></li>
+            <li><a href="#activities">Activities</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+    <div class="overlay"></div>
+    
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Discover the Himalayas Like Never Before</h1>
+            <p>Join us for unforgettable adventures in the breathtaking landscapes of the Himalayas</p>
+            <a href="#treks" class="btn">Explore Treks</a>
+            <a href="#contact" class="btn btn-outline">Contact Us</a>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="features" id="treks">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Popular Himalayan Treks</h2>
+            </div>
+            <div class="feature-cards">
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-img">
+                        <img src="https://picsum.photos/seed/kedarkantha/400/300.jpg" alt="Kedarkantha Trek">
+                    </div>
+                    <div class="card-content">
+                        <h3>Kedarkantha Trek</h3>
+                        <p>Experience the beauty of snow-capped peaks and pristine forests on this winter wonderland trek in Uttarakhand.</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="price">₹7,500 <span>₹9,500</span></div>
+                        <a href="#" class="btn">Book Now</a>
+                    </div>
+                </div>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card-img">
+                        <img src="https://picsum.photos/seed/hampta/400/300.jpg" alt="Hampta Pass Trek">
+                    </div>
+                    <div class="card-content">
+                        <h3>Hampta Pass Trek</h3>
+                        <p>Journey through contrasting landscapes from lush green valleys to barren mountains in Himachal Pradesh.</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="price">₹9,000 <span>₹11,000</span></div>
+                        <a href="#" class="btn">Book Now</a>
+                    </div>
+                </div>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card-img">
+                        <img src="https://picsum.photos/seed/valleyofflowers/400/300.jpg" alt="Valley of Flowers Trek">
+                    </div>
+                    <div class="card-content">
+                        <h3>Valley of Flowers</h3>
+                        <p>Witness a vibrant carpet of alpine flowers in this UNESCO World Heritage Site in Uttarakhand.</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="price">₹8,500 <span>₹10,500</span></div>
+                        <a href="#" class="btn">Book Now</a>
+                    </div>
+                </div>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card-img">
+                        <img src="https://picsum.photos/seed/roopkund/400/300.jpg" alt="Roopkund Trek">
+                    </div>
+                    <div class="card-content">
+                        <h3>Roopkund Trek</h3>
+                        <p>Discover the mystery of the skeletal lake at an altitude of 16,500 feet in the Himalayas.</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="price">₹12,000 <span>₹15,000</span></div>
+                        <a href="#" class="btn">Book Now</a>
+                    </div>
+                </div>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="card-img">
+                        <img src="https://picsum.photos/seed/brahmatal/400/300.jpg" alt="Brahmatal Trek">
+                    </div>
+                    <div class="card-content">
+                        <h3>Brahmatal Trek</h3>
+                        <p>Experience the perfect blend of adventure and serenity on this winter trek with frozen lakes.</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="price">₹7,000 <span>₹9,000</span></div>
+                        <a href="#" class="btn">Book Now</a>
+                    </div>
+                </div>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="card-img">
+                        <img src="https://picsum.photos/seed/kashmirtrek/400/300.jpg" alt="Kashmir Great Lakes Trek">
+                    </div>
+                    <div class="card-content">
+                        <h3>Kashmir Great Lakes</h3>
+                        <p>Explore the pristine alpine lakes of Kashmir on this breathtaking high-altitude trek.</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="price">₹15,000 <span>₹18,000</span></div>
+                        <a href="#" class="btn">Book Now</a>
+                    </div>
+                </div>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="700">
+                    <div class="card-img">
+                        <img src="https://picsum.photos/seed/sarpass/400/300.jpg" alt="Sar Pass Trek">
+                    </div>
+                    <div class="card-content">
+                        <h3>Sar Pass Trek</h3>
+                        <p>A perfect trek for beginners with stunning views of snow-capped peaks in Himachal Pradesh.</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="price">₹6,500 <span>₹8,000</span></div>
+                        <a href="#" class="btn">Book Now</a>
+                    </div>
+                </div>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="800">
+                    <div class="card-img">
+                        <img src="https://picsum.photos/seed/chopta/400/300.jpg" alt="Chopta Chandrashila Trek">
+                    </div>
+                    <div class="card-content">
+                        <h3>Chopta Chandrashila</h3>
+                        <p>Trek to the moon-like rock and witness panoramic views of the Himalayan peaks.</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="price">₹5,500 <span>₹7,000</span></div>
+                        <a href="#" class="btn">Book Now</a>
+                    </div>
+                </div>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="900">
+                    <div class="card-img">
+                        <img src="https://picsum.photos/seed/haridwar/400/300.jpg" alt="Har Ki Dun Trek">
+                    </div>
+                    <div class="card-content">
+                        <h3>Har Ki Dun Trek</h3>
+                        <p>Explore the Valley of Gods on this ancient trail with stunning views of Swargarohini peaks.</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="price">₹9,500 <span>₹11,500</span></div>
+                        <a href="#" class="btn">Book Now</a>
+                    </div>
+                </div>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="1000">
+                    <div class="card-img">
+                        <img src="https://picsum.photos/seed/panchachuli/400/300.jpg" alt="Panchachuli Base Camp">
+                    </div>
+                    <div class="card-content">
+                        <h3>Panchachuli Base Camp</h3>
+                        <p>Journey to the base of the five snow-capped peaks in the Kumaon region of Uttarakhand.</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="price">₹11,000 <span>₹13,500</span></div>
+                        <a href="#" class="btn">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>What Our Adventurers Say</h2>
+            </div>
+            <div class="testimonial-cards">
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">The Kedarkantha trek was an amazing experience! The guides were knowledgeable, the arrangements were perfect, and the views were breathtaking. Highly recommend Adventure Peaks!</p>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="https://picsum.photos/seed/person1/100/100.jpg" alt="Rahul Sharma">
+                        </div>
+                        <div class="author-info">
+                            <h4>Rahul Sharma</h4>
+                            <p>Trek Enthusiast</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">My first Himalayan trek with Adventure Peaks was the Valley of Flowers. The team made sure we were comfortable throughout the journey. It was a dream come true!</p>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="https://picsum.photos/seed/person2/100/100.jpg" alt="Priya Patel">
+                        </div>
+                        <div class="author-info">
+                            <h4>Priya Patel</h4>
+                            <p>Nature Photographer</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">The Hampta Pass trek challenged me in all the right ways. The team's support and the beautiful landscapes made it an unforgettable experience. Can't wait for my next trek!</p>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="https://picsum.photos/seed/person3/100/100.jpg" alt="Amit Kumar">
+                        </div>
+                        <div class="author-info">
+                            <h4>Amit Kumar</h4>
+                            <p>Adventure Seeker</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>About Adventure Peaks</h3>
+                    <p>We are a team of passionate adventurers dedicated to providing unforgettable Himalayan experiences. With expert guides, safety-first approach, and sustainable practices, we ensure your journey is both thrilling and responsible.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#treks">Popular Treks</a></li>
+                        <li><a href="#activities">Adventure Activities</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Popular Treks</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Kedarkantha Trek</a></li>
+                        <li><a href="#">Hampta Pass Trek</a></li>
+                        <li><a href="#">Valley of Flowers</a></li>
+                        <li><a href="#">Roopkund Trek</a></li>
+                        <li><a href="#">Brahmatal Trek</a></li>
+                        <li><a href="#">Kashmir Great Lakes</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> 123, Adventure Street, Manali, Himachal Pradesh - 175131</li>
+                        <li><i class="fas fa-phone"></i> +91 98765 43210</li>
+                        <li><i class="fas fa-envelope"></i> info@adventurepeaks.com</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Adventure Peaks. All Rights Reserved. | Designed with <i class="fas fa-heart" style="color: var(--secondary-color);"></i> by Adventure Team</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+        
+        // Mobile Menu Toggle
+        $(document).ready(function() {
+            $('.mobile-menu-btn').click(function() {
+                $('.mobile-menu').addClass('active');
+                $('.overlay').addClass('active');
+                $('body').css('overflow', 'hidden');
+            });
+            
+            $('.mobile-menu-close, .overlay').click(function() {
+                $('.mobile-menu').removeClass('active');
+                $('.overlay').removeClass('active');
+                $('body').css('overflow', 'auto');
+            });
+            
+            // Smooth Scrolling
+            $('a[href*="#"]').not('[href="#"]').not('[href="#0"]').click(function(event) {
+                if (
+                    location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') &&
+                    location.hostname == this.hostname
+                ) {
+                    var target = $(this.hash);
+                    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                    
+                    if (target.length) {
+                        event.preventDefault();
+                        
+                        $('html, body').animate({
+                            scrollTop: target.offset().top - 80
+                        }, 1000);
+                        
+                        // Close mobile menu if open
+                        $('.mobile-menu').removeClass('active');
+                        $('.overlay').removeClass('active');
+                        $('body').css('overflow', 'auto');
+                    }
+                }
+            });
+            
+            // Header Scroll Effect
+            $(window).scroll(function() {
+                if ($(this).scrollTop() > 100) {
+                    $('header').addClass('scrolled');
+                } else {
+                    $('header').removeClass('scrolled');
+                }
+            });
+            
+            // Card Hover Effect
+            $('.feature-card').hover(
+                function() {
+                    $(this).find('.card-img img').css('transform', 'scale(1.1)');
+                },
+                function() {
+                    $(this).find('.card-img img').css('transform', 'scale(1)');
+                }
+            );
+            
+            // Active Navigation Link
+            $(window).scroll(function() {
+                var scrollPosition = $(window).scrollTop();
+                
+                $('.main-nav a, .mobile-nav a').each(function() {
+                    var currentLink = $(this);
+                    var refElement = $(currentLink.attr('href'));
+                    
+                    if (refElement.length && refElement.position().top - 100 <= scrollPosition && refElement.position().top + refElement.height() > scrollPosition) {
+                        $('.main-nav a').removeClass('active');
+                        currentLink.addClass('active');
+                    } else {
+                        currentLink.removeClass('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>s

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore Mathura & Vrindavan | DreamTrip</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif;}
+
+    body {
+      background: linear-gradient(to bottom, #fff5f8, #fff9f1);
+      overflow-x: hidden;
+      color: #333;
+    }
+
+    /* Hero Section */
+    .hero {
+      background-image: url("/images/mat.jpg");
+      height: 500px;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      color: white;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    .hero-content h1 {
+      font-size: 3.5rem;
+      letter-spacing: 1px;
+      text-shadow: 2px 2px 15px rgba(0,0,0,0.6);
+    }
+
+    .hero-content p {
+      margin-top: 15px;
+      font-size: 1.2rem;
+      color: #f8f8f8;
+    }
+
+    .hero-content a {
+      display: inline-block;
+      margin-top: 25px;
+      background: linear-gradient(135deg, #d63384, #ff6f91);
+      color: white;
+      padding: 12px 30px;
+      border-radius: 30px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .hero-content a:hover {
+      background: linear-gradient(135deg, #ff6f91, #d63384);
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    /* About Section */
+    .about {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 80px 8%;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    .about-text {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .about-text h2 {
+      font-size: 2rem;
+      color: #d63384;
+      margin-bottom: 15px;
+    }
+
+    .about-text p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #444;
+    }
+
+    .about-slider {
+      flex: 1;
+      display: flex;
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+      position: relative;
+    }
+
+    .about-slider img {
+      width: 100%;
+      animation: slide 15s infinite;
+    }
+
+    @keyframes slide {
+      0%, 20% {transform: translateX(0);}
+      25%, 45% {transform: translateX(-100%);}
+      50%, 70% {transform: translateX(-200%);}
+      75%, 100% {transform: translateX(0);}
+    }
+
+    /* Attractions Section */
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      color: #d63384;
+      margin: 70px 0 20px;
+    }
+
+    .places {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      padding: 0 8%;
+    }
+
+    .place-card {
+      background: rgba(255,255,255,0.25);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 6px 25px rgba(0,0,0,0.1);
+      transition: all 0.4s;
+      position: relative;
+    }
+
+    .place-card:hover {
+      transform: translateY(-10px) scale(1.03);
+    }
+
+    .place-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .place-info {
+      padding: 20px;
+    }
+
+    .place-info h3 {
+      font-size: 1.3rem;
+      color: #d63384;
+      margin-bottom: 10px;
+    }
+
+    .place-info p {
+      font-size: 0.95rem;
+      color: #444;
+    }
+
+    /* Video Section */
+    .video {
+      text-align: center;
+      margin: 70px 0;
+    }
+
+    .video iframe {
+      width: 75%;
+      height: 420px;
+      border-radius: 15px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    }
+
+    /* Buttons */
+    .action-buttons {
+      text-align: center;
+      margin: 70px 0;
+    }
+
+    .action-buttons a {
+      display: inline-block;
+      margin: 10px;
+      padding: 14px 35px;
+      border-radius: 35px;
+      color: white;
+      background: linear-gradient(135deg, #d63384, #ff6f91);
+      font-weight: bold;
+      text-decoration: none;
+      transition: 0.3s;
+      box-shadow: 0 4px 10px rgba(214, 51, 132, 0.3);
+    }
+
+    .action-buttons a:hover {
+      transform: translateY(-5px);
+      background: linear-gradient(135deg, #ff6f91, #d63384);
+    }
+
+    footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Mathura & Vrindavan — The Divine Land of Krishna</h1>
+      <p>Experience spirituality, devotion, and the charm of Lord Krishna’s birthplace.</p>
+      <a href="#about"><i class="fa-solid fa-arrow-down"></i> Discover More</a>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="about-text">
+      <h2>About Mathura & Vrindavan</h2>
+      <p>Mathura and Vrindavan, located in Uttar Pradesh, are sacred twin cities deeply associated with the life and stories of Lord Krishna. Mathura, his birthplace, resonates with spiritual energy, while Vrindavan is where he spent his childhood. The cities are adorned with temples, ghats, and vibrant festivals like Holi and Janmashtami, attracting pilgrims and tourists from across the world.</p>
+    </div>
+    <div class="about-slider">
+      <img src="/images/janamkrishna.jpg" alt="Krishna Janmabhoomi Temple">
+      <img src="/images/banke.jpeg" alt="Banke Bihari Temple">
+      <img src="/images/mandir1.jpg" alt="Prem Mandir">
+    </div>
+  </section>
+
+  <h2 class="section-title">Top Attractions to Visit</h2>
+  <div class="places">
+    <div class="place-card">
+      <img src="/images/janam.webp" alt="Krishna Janmabhoomi">
+      <div class="place-info">
+        <h3>Shri Krishna Janmabhoomi</h3>
+        <p>The birthplace of Lord Krishna, this sacred temple complex is the spiritual heart of Mathura.</p>
+      </div>
+    </div>
+
+    <div class="place-card">
+      <img src="/images/bihari.jpg" alt="Banke Bihari Temple">
+      <div class="place-info">
+        <h3>Banke Bihari Temple</h3>
+        <p>One of Vrindavan’s most famous temples dedicated to Lord Krishna, filled with divine devotion.</p>
+      </div>
+    </div>
+
+    <div class="place-card">
+      <img src="/images/mandir.jpg" alt="Prem Mandir">
+      <div class="place-info">
+        <h3>Prem Mandir</h3>
+        <p>A stunning marble temple showcasing beautiful carvings and illuminated night views.</p>
+      </div>
+    </div>
+
+    <div class="place-card">
+      <img src="/images/yamuna.webp" alt="Yamuna Ghat">
+      <div class="place-info">
+        <h3>Yamuna Ghat</h3>
+        <p>Enjoy the tranquil evening aarti on the banks of the sacred Yamuna River, a divine experience.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="video">
+    <h2 class="section-title">Experience Mathura & Vrindavan</h2>
+    <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/8n0HfO4xv7E" title="Mathura Vrindavan Travel Guide" frameborder="0" allowfullscreen></iframe> -->
+     <iframe width="560" height="315" src="https://www.youtube.com/embed/mvNAOhdh_Cw?si=9kvCqOPBGyx8ZEEJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
+
+  <div class="action-buttons">
+    <a href="booking.html"><i class="fa-solid fa-ticket"></i> Book Now</a>
+    <a href="index1.html"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+  </div>
+
+  <footer>
+    <p>© 2025 DreamTrip | Designed with love for travelers</p>
+  </footer>
+
+</body>
+</html>

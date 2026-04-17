@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>DreamTrip - 3D Mini Scene Cards</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* Container perspective for 3d feel */
+    .scene-viewport {
+      perspective: 1200px;
+      -webkit-perspective: 1200px;
+    }
+
+    /* Floating animation for landmark & layers */
+    @keyframes floatY {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+      100% { transform: translateY(0px); }
+    }
+    .float-slow { animation: floatY 6s ease-in-out infinite; }
+    .float-medium { animation: floatY 4.5s ease-in-out infinite; }
+    .float-fast { animation: floatY 3s ease-in-out infinite; }
+
+    /* Clouds move horizontally */
+    @keyframes cloudMove {
+      0% { transform: translateX(-30%); opacity: .95; }
+      50% { opacity: .8;}
+      100% { transform: translateX(110%); opacity: .95; }
+    }
+    .cloud { animation: cloudMove 18s linear infinite; }
+
+    /* Birds flying path-ish */
+    @keyframes birdFly {
+      0% { transform: translateX(-20%) translateY(0) scale(.9); opacity: 0;}
+      10% { opacity: 1; }
+      50% { transform: translateX(40%) translateY(-18px) scale(1); }
+      90% { opacity: 1; }
+      100% { transform: translateX(120%) translateY(-30px) scale(.8); opacity: 0;}
+    }
+    .bird { animation: birdFly 6s linear infinite; }
+
+    /* Modal backdrop */
+    .modal-backdrop {
+      backdrop-filter: blur(6px) saturate(120%);
+      -webkit-backdrop-filter: blur(6px) saturate(120%);
+      background: rgba(6, 10, 15, 0.5);
+    }
+
+    /* 3D card flip-ish perspective */
+    .mini-scene {
+      transform-style: preserve-3d;
+      transform-origin: center bottom;
+      transition: transform .6s cubic-bezier(.2,.9,.3,1);
+    }
+
+    /* subtle radial light */
+    .radial-light {
+      background: radial-gradient(closest-side, rgba(255,255,255,0.12), rgba(255,255,255,0.02));
+      mix-blend-mode: overlay;
+    }
+
+    /* small utility for motion */
+    .smooth-appear {
+      transform: translateY(12px);
+      opacity: 0;
+      transition: all .35s cubic-bezier(.2,.9,.3,1);
+    }
+    .smooth-appear.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* make the modal scene look elevated */
+    .scene-card {
+      box-shadow: 0 20px 40px rgba(3,7,18,.45), inset 0 -6px 30px rgba(0,0,0,0.15);
+      border-radius: 18px;
+    }
+
+    /* small responsive tweak for svg sizes */
+    .landmark-svg { width: 260px; height: auto; }
+    @media (max-width: 640px) {
+      .landmark-svg { width: 200px; }
+    }
+
+    /* clickable card hover tilt */
+    .card-tilt {
+      transform: rotateX(0deg) rotateY(0deg);
+      transition: transform .18s ease-out, box-shadow .18s ease-out;
+      will-change: transform;
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-b from-sky-50 to-slate-50 min-h-screen font-sans text-slate-800">
+
+  <header class="max-w-6xl mx-auto px-6 py-8">
+    <h1 class="text-3xl font-semibold">DreamTrip — Destinations</h1>
+    <p class="mt-2 text-slate-600">Click a card to open a mini 3D travel scene with animated clouds and flying birds.</p>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-6 pb-20">
+    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Destination Card (repeat/change data-destination) -->
+      <article class="relative card-tilt group bg-white p-4 rounded-xl scene-viewport transform-gpu hover:shadow-2xl transition"
+               data-destination="Goa"
+               data-scene="goa">
+        <div class="flex items-start gap-4">
+          <div class="w-16 h-16 rounded-lg bg-gradient-to-br from-amber-300 to-amber-500 flex items-center justify-center text-white text-xl font-bold">GO</div>
+          <div class="flex-1">
+            <h3 class="text-lg font-semibold">Goa</h3>
+            <p class="text-sm text-slate-500 mt-1">Beaches, parties, sun & seafood.</p>
+          </div>
+        </div>
+
+        <div class="mt-4 flex gap-3">
+          <button class="open-scene-btn flex-1 bg-sky-600 text-white py-2 rounded-md shadow hover:bg-sky-700">Preview Scene</button>
+          <button class="text-sm px-3 py-2 border rounded-md text-slate-700">Explore</button>
+        </div>
+      </article>
+
+      <article class="relative card-tilt group bg-white p-4 rounded-xl scene-viewport transform-gpu hover:shadow-2xl transition"
+               data-destination="Agra"
+               data-scene="agra">
+        <div class="flex items-start gap-4">
+          <div class="w-16 h-16 rounded-lg bg-gradient-to-br from-rose-300 to-rose-500 flex items-center justify-center text-white text-xl font-bold">AG</div>
+          <div class="flex-1">
+            <h3 class="text-lg font-semibold">Agra</h3>
+            <p class="text-sm text-slate-500 mt-1">Taj Mahal and historic charm.</p>
+          </div>
+        </div>
+
+        <div class="mt-4 flex gap-3">
+          <button class="open-scene-btn flex-1 bg-rose-600 text-white py-2 rounded-md shadow hover:bg-rose-700">Preview Scene</button>
+          <button class="text-sm px-3 py-2 border rounded-md text-slate-700">Explore</button>
+        </div>
+      </article>
+
+      <article class="relative card-tilt group bg-white p-4 rounded-xl scene-viewport transform-gpu hover:shadow-2xl transition"
+               data-destination="Manali"
+               data-scene="manali">
+        <div class="flex items-start gap-4">
+          <div class="w-16 h-16 rounded-lg bg-gradient-to-br from-cyan-300 to-cyan-500 flex items-center justify-center text-white text-xl font-bold">MA</div>
+          <div class="flex-1">
+            <h3 class="text-lg font-semibold">Manali</h3>
+            <p class="text-sm text-slate-500 mt-1">Mountains, snow and pine forests.</p>
+          </div>
+        </div>
+
+        <div class="mt-4 flex gap-3">
+          <button class="open-scene-btn flex-1 bg-emerald-600 text-white py-2 rounded-md shadow hover:bg-emerald-700">Preview Scene</button>
+          <button class="text-sm px-3 py-2 border rounded-md text-slate-700">Explore</button>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <!-- Modal / Scene Popup -->
+  <div id="sceneModal" class="fixed inset-0 z-50 hidden items-center justify-center">
+    <div class="absolute inset-0 modal-backdrop"></div>
+
+    <div role="dialog" aria-modal="true" class="relative max-w-3xl w-full mx-4 scene-card radial-light p-6">
+      <button id="closeModal" class="absolute right-4 top-4 z-30 bg-white rounded-full p-2 shadow hover:scale-105" aria-label="Close">
+        ✕
+      </button>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
+        <!-- Scene area -->
+        <div class="flex items-center justify-center h-72 lg:h-96">
+          <div class="relative w-full max-w-lg h-full scene-viewport">
+
+            <!-- Back sky gradient -->
+            <div class="absolute inset-0 rounded-xl overflow-hidden" style="background: linear-gradient(180deg,#89cff0 0%, #dff3ff 60%, #fff 100%);">
+              <!-- subtle sun glow -->
+              <div class="absolute -top-14 left-1/2 transform -translate-x-1/2 w-44 h-44 rounded-full opacity-40" style="background: radial-gradient(circle at 30% 30%, rgba(255,255,230,0.9), rgba(255,255,230,0.05)); filter: blur(26px)"></div>
+            </div>
+
+            <!-- clouds layer -->
+            <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none">
+              <!-- cloud 1 -->
+              <g class="cloud float-slow" style="transform-origin:0% 20%;">
+                <ellipse cx="-10" cy="20" rx="18" ry="6" fill="rgba(255,255,255,0.9)"></ellipse>
+                <ellipse cx="-2" cy="18" rx="12" ry="5" fill="rgba(255,255,255,0.95)"></ellipse>
+              </g>
+              <!-- cloud 2 -->
+              <g class="cloud float-medium" style="transform-origin:10% 45%; animation-delay:3s;">
+                <ellipse cx="-20" cy="45" rx="20" ry="6" fill="rgba(255,255,255,0.9)"></ellipse>
+                <ellipse cx="-8" cy="43" rx="13" ry="5" fill="rgba(255,255,255,0.95)"></ellipse>
+              </g>
+
+              <!-- birds group -->
+              <g class="absolute" transform="translate(0,0)">
+                <path class="bird" d="M-10,30 q4,-4 9,0 q4,4 9,0" fill="none" stroke="rgba(10,10,10,0.9)" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" />
+                <path class="bird" style="animation-delay:1s" d="M-20,40 q4,-3 8,0 q3,3 8,0" fill="none" stroke="rgba(10,10,10,0.85)" stroke-width="0.45" stroke-linecap="round" stroke-linejoin="round" />
+              </g>
+            </svg>
+
+            <!-- ground and landmark container -->
+            <div class="absolute left-0 right-0 bottom-0 flex items-end justify-center pb-6">
+              <div class="mini-scene transform-gpu">
+                <!-- shadow -->
+                <div class="w-56 h-10 rounded-full opacity-20 blur-xl mx-auto" style="background: radial-gradient(closest-side, rgba(0,0,0,0.22), transparent);"></div>
+
+                <!-- landmark placeholder (will change per destination) -->
+                <div id="landmarkContainer" class="relative flex items-end justify-center mt-[-8px]">
+                  <!-- Example simple landmark: dome + minarets (SVG) -->
+                  <svg class="landmark-svg float-slow" viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <!-- base -->
+                    <rect x="20" y="110" width="160" height="28" rx="6" fill="#e6e6e6" />
+                    <!-- body -->
+                    <rect x="46" y="70" width="108" height="44" rx="8" fill="#ffffff" stroke="#e0e0e0" stroke-width="1"/>
+                    <!-- dome -->
+                    <path d="M100 28 C124 28 146 60 146 70 C146 80 124 62 100 62 C76 62 54 80 54 70 C54 60 76 28 100 28 Z" fill="#f8eae3" stroke="#f0d6c8" stroke-width="1"/>
+                    <!-- spire -->
+                    <rect x="96" y="8" width="8" height="22" rx="3" fill="#f7cfae" />
+                    <circle cx="100" cy="6" r="3" fill="#f2b98a" />
+                    <!-- small arches -->
+                    <g fill="#f0f0f0" stroke="#eee" stroke-width="0.6">
+                      <rect x="66" y="86" width="22" height="22" rx="4"></rect>
+                      <rect x="112" y="86" width="22" height="22" rx="4"></rect>
+                    </g>
+                    <!-- decorative columns -->
+                    <g fill="#f7f7f7">
+                      <rect x="42" y="70" width="6" height="44" rx="2"></rect>
+                      <rect x="152" y="70" width="6" height="44" rx="2"></rect>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Info / CTA -->
+        <div class="p-2">
+          <h2 id="modalTitle" class="text-2xl font-bold">Destination</h2>
+          <p id="modalDesc" class="mt-2 text-slate-600">Mini scene with animated clouds and birds.</p>
+
+          <div class="mt-6 flex gap-3">
+            <button id="bookNowBtn" class="px-4 py-2 bg-indigo-600 text-white rounded-md shadow hover:bg-indigo-700">Book This Trip</button>
+            <button id="moreBtn" class="px-4 py-2 border rounded-md text-slate-700">More Details</button>
+          </div>
+
+          <div class="mt-6 text-xs text-slate-500">
+            Tip: Click outside the popup or press ✕ to close.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Basic interactivity
+    const modal = document.getElementById('sceneModal');
+    const closeBtn = document.getElementById('closeModal');
+    const titleEl = document.getElementById('modalTitle');
+    const descEl = document.getElementById('modalDesc');
+    const landmarkContainer = document.getElementById('landmarkContainer');
+
+    // Pre-made mini-scenes: you can expand or replace these with richer SVGs or Lottie players
+    const scenes = {
+      goa: {
+        title: 'Goa — Beach Mini Scene',
+        desc: 'Sandy shore, umbrella, palm and birds. Click Book to start planning.',
+        markup: `
+          <svg class="landmark-svg float-slow" viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg">
+            <!-- sea -->
+            <rect x="0" y="110" width="240" height="50" fill="#9ad3ea"/>
+            <!-- sand -->
+            <rect x="0" y="130" width="240" height="30" fill="#f6d7a7"/>
+            <!-- umbrella -->
+            <path d="M120 65 C90 60 60 80 50 120 L190 120 C170 80 150 60 120 65 Z" fill="#ff6b6b" stroke="#d95a5a"/>
+            <rect x="119" y="68" width="2" height="52" fill="#8a6b4b" />
+            <!-- palm -->
+            <rect x="28" y="82" width="6" height="40" fill="#6b4b2a" rx="2" />
+            <path d="M34 86 q-30 -20 6 -22 q8 12 24 6 q-6 12 -30 38" fill="#2f9e44" />
+          </svg>
+        `
+      },
+      agra: {
+        title: 'Agra — Mini Taj Scene',
+        desc: 'A stylized Taj Mahal with birds overhead.',
+        markup: `
+          <svg class="landmark-svg float-medium" viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
+            <rect x="20" y="110" width="160" height="28" rx="6" fill="#efece7" />
+            <rect x="46" y="70" width="108" height="44" rx="8" fill="#ffffff" stroke="#e9e6e3" stroke-width="1"/>
+            <path d="M100 28 C124 28 146 60 146 70 C146 80 124 62 100 62 C76 62 54 80 54 70 C54 60 76 28 100 28 Z" fill="#fff6f0" stroke="#f0e0d8" stroke-width="0.8"/>
+            <rect x="96" y="8" width="8" height="22" rx="3" fill="#f4d7c4" />
+            <circle cx="100" cy="6" r="3" fill="#e8c3a7" />
+            <path d="M-20 40 q20 -10 40 0 q20 10 40 0 q20 -10 40 0" fill="none" stroke="#111" stroke-width="0.6" opacity="0.6"/>
+          </svg>
+        `
+      },
+      manali: {
+        title: 'Manali — Mountain Mini Scene',
+        desc: 'Snowy peaks, pine trees and drifting clouds.',
+        markup: `
+          <svg class="landmark-svg float-slow" viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0" y="120" width="240" height="40" fill="#eef6ff"/>
+            <!-- mountains -->
+            <path d="M10 120 L70 40 L130 120 Z" fill="#b9d6ff"/>
+            <path d="M80 120 L140 30 L200 120 Z" fill="#9ec9ff"/>
+            <!-- snow caps -->
+            <path d="M78 55 L95 42 L86 64 Z" fill="#fff"/>
+            <rect x="100" y="110" width="40" height="10" fill="#d1e8ff" rx="4"/>
+          </svg>
+        `
+      }
+    };
+
+    // Hook up open buttons (allow card or button click)
+    document.querySelectorAll('.open-scene-btn, article[data-scene]').forEach(el => {
+      el.addEventListener('click', (ev) => {
+        // find nearest article (card)
+        const card = ev.target.closest('article');
+        if (!card) return;
+        const sceneKey = card.getAttribute('data-scene') || 'goa';
+        openScene(sceneKey);
+      });
+    });
+
+    // Card tilt effect (mouse move)
+    document.querySelectorAll('article.card-tilt').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const cx = rect.width / 2;
+        const cy = rect.height / 2;
+        const dx = (x - cx) / cx;
+        const dy = (y - cy) / cy;
+        const rotateY = dx * 6; // degrees
+        const rotateX = -dy * 6;
+        card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(0)`;
+        card.style.boxShadow = `${-rotateY*2}px ${Math.abs(rotateX)*4}px 30px rgba(2,6,23,0.12)`;
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = `rotateX(0deg) rotateY(0deg)`;
+        card.style.boxShadow = '';
+      });
+    });
+
+    // Open scene modal
+    function openScene(key) {
+      const s = scenes[key] || scenes['goa'];
+      titleEl.textContent = s.title;
+      descEl.textContent = s.desc;
+
+      // inject markup (replace landmark)
+      landmarkContainer.innerHTML = s.markup;
+
+      // show modal
+      modal.classList.remove('hidden');
+      // small appear animation
+      setTimeout(() => {
+        modal.querySelector('.scene-card').classList.add('smooth-appear', 'show');
+      }, 30);
+
+      // add click outside to close
+      setTimeout(() => {
+        window.addEventListener('click', outsideClick);
+      }, 50);
+    }
+
+    function closeScene() {
+      modal.querySelector('.scene-card').classList.remove('show');
+      modal.classList.add('hidden');
+      window.removeEventListener('click', outsideClick);
+    }
+
+    closeBtn.addEventListener('click', closeScene);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeScene();
+    });
+
+    function outsideClick(e) {
+      const dialog = modal.querySelector('[role="dialog"]');
+      if (!dialog.contains(e.target)) closeScene();
+    }
+
+    // Prevent clicks in dialog from closing (stop propagation)
+    document.querySelector('[role="dialog"]').addEventListener('click', (e) => e.stopPropagation());
+  </script>
+</body>
+</html>

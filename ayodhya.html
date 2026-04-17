@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore Ayodhya | DreamTrip</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif;}
+
+    body {
+      background: linear-gradient(to bottom, #fff8ef, #fff2e6);
+      overflow-x: hidden;
+      color: #333;
+    }
+
+    /* Hero Section */
+    .hero {
+      background-image: url("/images/ayodhya1.png");
+      height: 500px;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      color: white;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    .hero-content h1 {
+      font-size: 3.5rem;
+      text-shadow: 2px 2px 15px rgba(0,0,0,0.6);
+    }
+
+    .hero-content p {
+      margin-top: 15px;
+      font-size: 1.2rem;
+      color: #f8f8f8;
+    }
+
+    .hero-content a {
+      display: inline-block;
+      margin-top: 25px;
+      background: linear-gradient(135deg, #f7b733, #fc4a1a);
+      color: white;
+      padding: 12px 30px;
+      border-radius: 30px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .hero-content a:hover {
+      background: linear-gradient(135deg, #fc4a1a, #f7b733);
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    /* About Section */
+    .about {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 80px 8%;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    .about-text {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .about-text h2 {
+      font-size: 2rem;
+      color: #fc4a1a;
+      margin-bottom: 15px;
+    }
+
+    .about-text p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #444;
+    }
+
+    .about-slider {
+      flex: 1;
+      display: flex;
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+      position: relative;
+    }
+
+    .about-slider img {
+      width: 100%;
+      animation: slide 15s infinite;
+    }
+
+    @keyframes slide {
+      0%, 20% {transform: translateX(0);}
+      25%, 45% {transform: translateX(-100%);}
+      50%, 70% {transform: translateX(-200%);}
+      75%, 100% {transform: translateX(0);}
+    }
+
+    /* Attractions Section */
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      color: #fc4a1a;
+      margin: 70px 0 20px;
+    }
+
+    .places {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      padding: 0 8%;
+    }
+
+    .place-card {
+      background: rgba(255,255,255,0.25);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 6px 25px rgba(0,0,0,0.1);
+      transition: all 0.4s;
+      position: relative;
+    }
+
+    .place-card:hover {
+      transform: translateY(-10px) scale(1.03);
+    }
+
+    .place-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .place-info {
+      padding: 20px;
+    }
+
+    .place-info h3 {
+      font-size: 1.3rem;
+      color: #fc4a1a;
+      margin-bottom: 10px;
+    }
+
+    .place-info p {
+      font-size: 0.95rem;
+      color: #444;
+    }
+
+    /* Video Section */
+    .video {
+      text-align: center;
+      margin: 70px 0;
+    }
+
+    .video iframe {
+      width: 75%;
+      height: 420px;
+      border-radius: 15px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    }
+
+    /* Buttons */
+    .action-buttons {
+      text-align: center;
+      margin: 70px 0;
+    }
+
+    .action-buttons a {
+      display: inline-block;
+      margin: 10px;
+      padding: 14px 35px;
+      border-radius: 35px;
+      color: white;
+      background: linear-gradient(135deg, #f7b733, #fc4a1a);
+      font-weight: bold;
+      text-decoration: none;
+      transition: 0.3s;
+      box-shadow: 0 4px 10px rgba(252, 74, 26, 0.3);
+    }
+
+    .action-buttons a:hover {
+      transform: translateY(-5px);
+      background: linear-gradient(135deg, #fc4a1a, #f7b733);
+    }
+
+    footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+    }
+    .var{
+      width: 80%;
+      line-height: 1.6;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Ayodhya — The Birthplace of Lord Rama</h1>
+      <p>Experience the divine beauty and rich spiritual heritage of the holy city of Ayodhya.</p>
+      <a href="#about"><i class="fa-solid fa-arrow-down"></i> Discover More</a>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="about-text">
+      <h2 style="font-family: cursive;font-size: 40px;text-transform:initial;text-shadow:tan;">About Ayodhya</h2>
+      <div class="var">
+      <p style="font-family:'Roboto',sans-serif;font-size: 20px;letter-spacing: 1px;">Ayodhya, one of the seven sacred cities of India, is located on the banks of the Sarayu River in Uttar Pradesh. It is renowned as the birthplace of Lord Rama and holds deep religious and historical significance. With the grand Ram Mandir standing tall, Ayodhya welcomes millions of devotees and tourists each year to experience its peace, devotion, and culture.</p>
+      </div>
+    </div>
+    <div class="about-slider">
+      <img src="/images/ram.jpg" alt="Ram Mandir Ayodhya">
+      <img src="/images/sarayu.webp" alt="Sarayu River">
+      <img src="/images/hanuman.jpg" alt="Hanuman Garhi">
+    </div>
+  </section>
+
+  <h2 class="section-title" style="font-family: cursive;font-size:40px ;padding-bottom: 30px;">Top Attractions to Visit</h2>
+  <div class="places">
+    <div class="place-card">
+      <img src="/images/ram-mandir1.avif" alt="Ram Mandir">
+      <div class="place-info">
+        <h3 style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: 30px;font-weight: 600;">Ram Mandir</h3>
+        <p style="line-height: 1.6;font-size: 18px;color: rgb(87, 86, 86);font-family:serif;">The newly constructed grand temple dedicated to Lord Rama — a symbol of devotion and Indian heritage.</p>
+      </div>
+    </div>
+
+    <div class="place-card">
+      <img src="/images/garhi.webp" alt="Hanuman Garhi">
+      <div class="place-info">
+        <h3 style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: 30px;font-weight: 600;">Hanuman Garhi</h3>
+        <p style="line-height: 1.6;font-size: 18px;color: rgb(87, 86, 86);font-family:serif;">A 10th-century temple devoted to Lord Hanuman, offering breathtaking views of Ayodhya city.</p>
+      </div>
+    </div>
+
+    <div class="place-card">
+      <img src="/images/river.jpg" alt="Sarayu River Ghat">
+      <div class="place-info">
+        <h3 style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: 30px;font-weight: 600;">Sarayu River Ghats</h3>
+        <p style="line-height: 1.6;font-size: 18px;color: rgb(87, 86, 86);font-family:serif;">Peaceful riverbanks perfect for spiritual reflection and evening Aarti ceremonies.</p>
+      </div>
+    </div>
+
+    <div class="place-card">
+      <img src="/images/kanak.jpg" alt="Kanak Bhavan">
+      <div class="place-info">
+        <h3 style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: 30px;font-weight: 600;">Kanak Bhavan</h3>
+        <p style="line-height: 1.6;font-size: 18px;color: rgb(87, 86, 86);font-family:serif;">A beautiful temple dedicated to Lord Rama and Sita, adorned with gold and intricate carvings.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="video">
+    <h2 class="section-title" style="font-family: cursive;padding-bottom: 30px;">Experience Ayodhya</h2>
+    <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/hq6aL5ZsN0Q" title="Ayodhya Travel Guide" frameborder="0" allowfullscreen></iframe> -->
+     <iframe width="560" height="315" src="https://www.youtube.com/embed/LaIvr0hK7do?si=4Mxoipou4q6Snw2y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
+
+  <div class="action-buttons">
+    <a href="booking.html"><i class="fa-solid fa-ticket"></i> Book Now</a>
+    <a href="index1.html"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+  </div>
+
+  <footer>
+    <p>© 2025 DreamTrip | Designed with love for travelers</p>
+  </footer>
+
+</body>
+</html>

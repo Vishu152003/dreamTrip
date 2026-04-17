@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore Agra | DreamTrip</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif;}
+
+    body {
+      background: linear-gradient(to bottom, #ffffff, #eef5ff);
+      overflow-x: hidden;
+      color: #222;
+    }
+
+    /* Hero Section */
+    .hero {
+      /* background: url('https://upload.wikimedia.org/wikipedia/commons/0/0d/Taj_Mahal_sunset.jpg') no-repeat center/cover; */
+      background-image: url("images/agra-fort.jpg");
+      height: 500px;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      color: white;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    .hero-content h1 {
+      font-size: 3.5rem;
+      letter-spacing: 1px;
+      text-shadow: 2px 2px 15px rgba(0,0,0,0.6);
+    }
+
+    .hero-content p {
+      margin-top: 15px;
+      font-size: 1.2rem;
+      color: #f0f0f0;
+    }
+
+    .hero-content a {
+      display: inline-block;
+      margin-top: 25px;
+      background: linear-gradient(135deg, #00b4d8, #0077b6);
+      color: white;
+      padding: 12px 30px;
+      border-radius: 30px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .hero-content a:hover {
+      background: linear-gradient(135deg, #0096c7, #00b4d8);
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    /* About Section */
+    .about {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 80px 8%;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    .about-text {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .about-text h2 {
+      font-size: 2rem;
+      color: #0077b6;
+      margin-bottom: 15px;
+    }
+
+    .about-text p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #333;
+    }
+
+    .about-slider {
+      flex: 1;
+      display: flex;
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+      position: relative;
+    }
+
+    .about-slider img {
+      width: 100%;
+      animation: slide 15s infinite;
+    }
+
+    @keyframes slide {
+      0%, 20% {transform: translateX(0);}
+      25%, 45% {transform: translateX(-100%);}
+      50%, 70% {transform: translateX(-200%);}
+      75%, 100% {transform: translateX(0);}
+    }
+
+    /* Attractions Section */
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      color: #0077b6;
+      margin: 70px 0 20px;
+    }
+
+    .places {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      padding: 0 8%;
+    }
+
+    .place-card {
+      background: rgba(255,255,255,0.25);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 6px 25px rgba(0,0,0,0.1);
+      transition: all 0.4s;
+      position: relative;
+    }
+
+    .place-card:hover {
+      transform: translateY(-10px) scale(1.03);
+    }
+
+    .place-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .place-info {
+      padding: 20px;
+    }
+
+    .place-info h3 {
+      font-size: 1.3rem;
+      color: #0077b6;
+      margin-bottom: 10px;
+    }
+
+    .place-info p {
+      font-size: 0.95rem;
+      color: #444;
+    }
+
+    /* Video Section */
+    .video {
+      text-align: center;
+      margin: 70px 0;
+    }
+
+    .video iframe {
+      width: 75%;
+      height: 420px;
+      border-radius: 15px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    }
+
+    /* Buttons */
+    .action-buttons {
+      text-align: center;
+      margin: 70px 0;
+    }
+
+    .action-buttons a {
+      display: inline-block;
+      margin: 10px;
+      padding: 14px 35px;
+      border-radius: 35px;
+      color: white;
+      background: linear-gradient(135deg, #00b4d8, #0077b6);
+      font-weight: bold;
+      text-decoration: none;
+      transition: 0.3s;
+      box-shadow: 0 4px 10px rgba(0, 119, 182, 0.3);
+    }
+
+    .action-buttons a:hover {
+      transform: translateY(-5px);
+      background: linear-gradient(135deg, #0077b6, #00b4d8);
+    }
+
+    footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+    }
+    .var{
+      /* border:1px solid black;
+      border-radius: 30px;
+      padding: 20px;
+      background-color:whitesmoke; */
+      width: 80%;
+      line-height: 1.6;
+      /* border:none; */
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Agra — The City of Eternal Love</h1>
+      <p>Explore Mughal magnificence and the timeless beauty of the Taj Mahal.</p>
+      <a href="#about"><i class="fa-solid fa-arrow-down"></i> Discover Agra</a>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="about-text">
+      <h2 style="font-family: cursive;font-size: 40px;text-transform:initial;text-shadow:tan;">About Agra</h2>
+      <div class="var">
+      <p style="font-family:'Roboto',sans-serif;font-size: 20px;letter-spacing: 1px;">Agra, the city of romance, is home to the magnificent Taj Mahal — an eternal symbol of love. Situated on the banks of the Yamuna River, Agra enchants visitors with its blend of history, architecture, and culture. From grand Mughal forts to peaceful gardens, it offers travelers a glimpse into India’s royal heritage.</p>
+      </div>
+    </div>
+    <div class="about-slider">
+      <img src="/images/Agra.avif" alt="Taj Mahal">
+      <img src="/images/ft.jpg" alt="Agra Fort">
+      <img src="/images/bag.jpg" alt="Mehtab Bagh">
+    </div>
+  </section>
+
+  <h2 class="section-title" style="font-family: cursive;font-size: 40px;padding-bottom: 30px;">Top Attractions</h2>
+  <br><br>
+  <div class="places">
+    <div class="place-card">
+      <img src="/images/ag.jpg" alt="Taj Mahal">
+      <div class="place-info">
+        <h3 style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: 30px;font-weight: 600;">Taj Mahal</h3>
+        <p style="line-height: 1.6;font-size: 18px;color: rgb(87, 86, 86);font-family:serif;" >The marble masterpiece built by Emperor Shah Jahan for Mumtaz Mahal, symbolizing eternal love.</p>
+      </div>
+    </div>
+
+    <div class="place-card">
+      <img src="/images/f.jpg" alt="Agra Fort">
+      <div class="place-info">
+        <h3 style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: 30px;font-weight: 600;">Agra Fort</h3>
+        <p style="line-height: 1.6;font-size: 18px;color: rgb(87, 86, 86);font-family:serif;">A UNESCO World Heritage site showcasing Mughal strength and beauty with red sandstone grandeur.</p>
+      </div>
+    </div>
+
+    <div class="place-card">
+      <img src="/images/sikri.png" alt="Fatehpur Sikri">
+      <div class="place-info">
+        <h3 style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: 30px;font-weight: 600;">Fatehpur Sikri</h3>
+        <p style="line-height: 1.6;font-size: 18px;color: rgb(87, 86, 86);font-family:serif;">The ghost capital of the Mughal Empire, filled with stunning palaces and ancient charm.</p>
+      </div>
+    </div>
+
+    <div class="place-card">
+      <img src="/images/b.avif" alt="Mehtab Bagh">
+      <div class="place-info">
+        <h3 style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: 30px;font-weight: 600;">Mehtab Bagh</h3>
+        <p style="line-height: 1.6;font-size: 18px;color: rgb(87, 86, 86);font-family:serif;">A tranquil riverside garden offering picture-perfect sunset views of the Taj Mahal.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="video">
+    <h2 class="section-title" style="font-family: cursive;padding-bottom: 30px;">Discover Agra in Motion</h2>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/kFbG5wbAUBI?si=dHgJp2mgJfsTnvK-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
+
+  <div class="action-buttons">
+    <a href="booking.html"><i class="fa-solid fa-ticket"></i> Book Now</a>
+    <a href="index1.html"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+  </div>
+
+  <footer>
+    <p>© 2025 DreamTrip | Designed for explorers by DreamTrip Team</p>
+  </footer>
+
+</body>
+</html>

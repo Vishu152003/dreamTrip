@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore Golden Temple | DreamTrip</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif;}
+
+    body {
+      background: linear-gradient(to bottom, #fffdf0, #f9f6ff);
+      overflow-x: hidden;
+      color: #222;
+    }
+
+    /* Hero Section */
+    .hero {
+      background-image: url("/images/g.webp");
+      height: 500px;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      color: white;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    .hero-content h1 {
+      font-size: 3.5rem;
+      letter-spacing: 1px;
+      text-shadow: 2px 2px 15px rgba(0,0,0,0.6);
+    }
+
+    .hero-content p {
+      margin-top: 15px;
+      font-size: 1.2rem;
+      color: #f8f8f8;
+    }
+
+    .hero-content a {
+      display: inline-block;
+      margin-top: 25px;
+      background: linear-gradient(135deg, #ffb703, #fb8500);
+      color: white;
+      padding: 12px 30px;
+      border-radius: 30px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .hero-content a:hover {
+      background: linear-gradient(135deg, #fb8500, #ffb703);
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    /* About Section */
+    .about {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 80px 8%;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    .about-text {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .about-text h2 {
+      font-size: 2rem;
+      color: #fb8500;
+      margin-bottom: 15px;
+    }
+
+    .about-text p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #333;
+    }
+
+    .about-slider {
+      flex: 1;
+      display: flex;
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+      position: relative;
+      /* height: 450px; */
+      /* width: 90%; */
+    }
+
+    .about-slider img {
+      width: 100%;
+      /* height: 450px; */
+      animation: slide 20s infinite;
+    }
+
+    @keyframes slide {
+      0%, 20% {transform: translateX(0);}
+      25%, 45% {transform: translateX(-100%);}
+      50%, 70% {transform: translateX(-200%);}
+      75%, 100% {transform: translateX(0);}
+    }
+
+    /* Attractions Section */
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      color: #fb8500;
+      margin: 70px 0 20px;
+    }
+
+    .places {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      padding: 0 8%;
+    }
+
+    .place-card {
+      background: rgba(255,255,255,0.25);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 6px 25px rgba(0,0,0,0.1);
+      transition: all 0.4s;
+      position: relative;
+    }
+
+    .place-card:hover {
+      transform: translateY(-10px) scale(1.03);
+    }
+
+    .place-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .place-info {
+      padding: 20px;
+    }
+
+    .place-info h3 {
+      font-size: 1.3rem;
+      color: #fb8500;
+      margin-bottom: 10px;
+    }
+
+    .place-info p {
+      font-size: 0.95rem;
+      color: #444;
+    }
+
+    /* Video Section */
+    .video {
+      text-align: center;
+      margin: 70px 0;
+    }
+
+    .video iframe {
+      width: 75%;
+      height: 420px;
+      border-radius: 15px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    }
+
+    /* Buttons */
+    .action-buttons {
+      text-align: center;
+      margin: 70px 0;
+    }
+
+    .action-buttons a {
+      display: inline-block;
+      margin: 10px;
+      padding: 14px 35px;
+      border-radius: 35px;
+      color: white;
+      background: linear-gradient(135deg, #ffb703, #fb8500);
+      font-weight: bold;
+      text-decoration: none;
+      transition: 0.3s;
+      box-shadow: 0 4px 10px rgba(251, 133, 0, 0.3);
+    }
+
+    .action-buttons a:hover {
+      transform: translateY(-5px);
+      background: linear-gradient(135deg, #fb8500, #ffb703);
+    }
+
+    footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+    }
+    .var{
+      width: 80%;
+      line-height: 1.6;
+      font-weight: 500;
+    }
+
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Golden Temple — The Heart of Amritsar</h1>
+      <p>Experience serenity and divine beauty at the sacred Harmandir Sahib.</p>
+      <a href="#about"><i class="fa-solid fa-arrow-down"></i> Discover Temple</a>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="about-text">
+      <h2 style="font-family: cursive;font-size: 40px;text-transform:initial;text-shadow:tan;">About Golden Temple</h2>
+      <p style="font-family:'Roboto',sans-serif;font-size: 20px;letter-spacing: 1px;">The Golden Temple, also known as Sri Harmandir Sahib, is the spiritual center of Sikhism located in Amritsar, Punjab. Built in 1604 by Guru Arjan Dev Ji, it stands as a symbol of equality, peace, and brotherhood. Its golden façade shimmering over the sacred Amrit Sarovar creates a mesmerizing reflection that draws millions of devotees and tourists every year.</p>
+    </div>
+    <div class="about-slider">
+      <img src="/images/night.webp" alt="Golden Temple Night View">
+      <img src="/images/d.jpg" alt="Golden Temple Daytime">
+      <img src="/images/sarover.jpg" alt="Amrit Sarovar">
+    </div>
+  </section>
+
+  <h2 class="section-title" style="padding-bottom: 20px;font-family: cursive;">Top Attractions Around Amritsar</h2>
+  <div class="places">
+    <div class="place-card">
+      <img src="/images/jalliya.jpg" alt="Jallianwala Bagh">
+      <div class="place-info">
+        <h3 style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: 30px;font-weight: 600;">Jallianwala Bagh</h3>
+        <p style="line-height: 1.6;font-size: 18px;color: rgb(87, 86, 86);font-family:serif;"> A historical memorial that stands as a reminder of India’s struggle for independence.</p>
+      </div>
+    </div>
+
+    <div class="place-card">
+      <img src="/images/wagah.jpg" alt="Wagah Border">
+      <div class="place-info">
+        <h3 style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: 30px;font-weight: 600;">Wagah Border</h3>
+        <p style="line-height: 1.6;font-size: 18px;color: rgb(87, 86, 86);font-family:serif;">Witness the electrifying flag-lowering ceremony between India and Pakistan at this iconic border post.</p>
+      </div>
+    </div>
+
+    <div class="place-card">
+      <img src="/images/akal.jpg" alt="Akal Takht">
+      <div class="place-info">
+        <h3 style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: 30px;font-weight: 600;">Akal Takht</h3>
+        <p style="line-height: 1.6;font-size: 18px;color: rgb(87, 86, 86);font-family:serif;">The seat of Sikh temporal authority, symbolizing courage and justice beside the Golden Temple.</p>
+      </div>
+    </div>
+
+    <div class="place-card">
+      <img src="/images/durgia.webp" alt="Durgiana Temple">
+      <div class="place-info">
+        <h3 style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: 30px;font-weight: 600;">Durgiana Temple</h3>
+        <p style="line-height: 1.6;font-size: 18px;color: rgb(87, 86, 86);font-family:serif;">A beautiful Hindu temple with architecture resembling the Golden Temple, dedicated to Goddess Durga.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="video">
+    <h2 class="section-title" style="font-family: cursive;padding-bottom: 30px;">Experience Golden Temple</h2>
+    <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/E1C2lQnZK7c" title="Golden Temple Amritsar" frameborder="0" allowfullscreen></iframe> -->
+     <iframe width="560" height="315" src="https://www.youtube.com/embed/m701WKQMeYQ?si=bQ6xc2BKWufLzm5T" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
+
+  <div class="action-buttons">
+    <a href="booking.html"><i class="fa-solid fa-ticket"></i> Book Now</a>
+    <a href="index1.html"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+  </div>
+
+  <footer>
+    <p>© 2025 DreamTrip | Designed with love for travelers</p>
+  </footer>
+
+</body>
+</html>
